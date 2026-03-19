@@ -19,5 +19,10 @@ print(type(x))
 y="5"
 print(5,y)
 
+a = "10"
+b = 5
+c = int(a) + b
+c = a + str(b)
+print(c)
 
 
