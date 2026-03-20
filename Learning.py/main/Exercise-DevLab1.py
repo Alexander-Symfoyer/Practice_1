@@ -26,11 +26,11 @@ W = ("Hey!")
 print((W+" ")*5)
 
 #The following code will perform various operations on the number 10 and print the results.
-#number = int(10/2)
-#print(number)
-#number = int(input("Enter a number : "))
-#print(number)
-#print(type(number))
+number = int(10/2)
+print(number)
+number = int(input("Enter a number : "))
+print(number)
+print(type(number))
 
 
 #The following code will ask the user to enter two numbers and then it will perform various operations on those numbers and print the results.
