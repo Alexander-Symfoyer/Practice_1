@@ -17,3 +17,14 @@ for i in range(1, x+1):
         first = False
 if first:
     print("no seven")
+
+x = int(input("Any number : "))
+true = True
+for i in range(1,x+1):
+    if i % 7 == 0 or "7" in str(i):
+        if not true:
+            print(",",end ="")
+        print(i,end ="")
+        true = False
+if true:
+    print("no seven")

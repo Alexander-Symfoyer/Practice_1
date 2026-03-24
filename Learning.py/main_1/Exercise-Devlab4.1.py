@@ -7,9 +7,11 @@ B = int(input("Enter a number: "))
 if A > B:
     for x in range(B, A + 1):
         print(A+1-x,end=" ")
-else: 
-    for x in range(A,B + 1,-1):
+if A < B:
+    for x in range(A,B + 1):
         print(x,end=" ")
+else:
+    print("Try again")
 
 
 

@@ -44,3 +44,20 @@ for digit in reversed(num):
 else:
     print(result)
 
+A = int(input("Enter a number : "))
+B = int(input("Enter another number : "))
+prime = []
+count = 0
+for num in range (A,B+1):
+    if num < 2:
+        continue
+    is_prime = True
+    for i in range (2,num):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        prime = prime + [num]
+        count += 1
+print("found : ",count)
+print(prime)
