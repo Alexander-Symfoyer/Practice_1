@@ -1,7 +1,3 @@
-from gettext import Catalog
-from typing import Final
-
-
 text = "Hello"
 print(text[0]+text[1]+text[2]+text[3])
 print(text[0:4])
