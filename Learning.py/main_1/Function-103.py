@@ -31,15 +31,15 @@ def error():
     print("Invalid input!")
 
 
-while True:
-    if login():
-        menu()
-        D = select()
-        if D == 1:
-            vat()
-        elif D == 2:
-            price()
-        else:
-            error()
+
+if login():
+    menu()
+    D = select()
+    if D == 1:
+        vat()
+    elif D == 2:
+        price()
     else:
         error()
+else:
+    error()
