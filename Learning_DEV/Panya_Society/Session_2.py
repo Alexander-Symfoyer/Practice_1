@@ -33,3 +33,4 @@ g = [x for x in f if x < 8]
 print(g)
 h = [x*2 for x in f ]
 print(h)
+
