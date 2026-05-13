@@ -15,27 +15,22 @@ class ForexAnalyzerApp(ctk.CTk):
 
         super().__init__()
 
-        # =========================================
-        # WINDOW
-        # =========================================
+        # ---------------- WINDOW ----------------
 
         self.title("Forex Historical Analyzer")
 
         self.geometry("900x700")
 
-        ctk.set_appearance_mode("light")
-
+        ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("dark-blue")
 
-        # =========================================
-        # API
-        # =========================================
+        self.configure(
+            fg_color="#0F172A"
+        )
+
+        # ---------------- FOREX ----------------
 
         self.c = CurrencyRates()
-
-        # =========================================
-        # CURRENCY LIST
-        # =========================================
 
         self.currency_list = [
             "USD",
@@ -45,26 +40,26 @@ class ForexAnalyzerApp(ctk.CTk):
             "THB"
         ]
 
-        # =========================================
-        # CREATE UI
-        # =========================================
+        self.time_options = [
+            "7 Days",
+            "30 Days",
+            "90 Days",
+            "1 Year"
+        ]
+
+        # ---------------- UI ----------------
 
         self.create_widgets()
 
-    # =========================================
-    # UI
-    # =========================================
-
     def create_widgets(self):
 
-        # =========================================
-        # TITLE
-        # =========================================
+        # ---------------- TITLE ----------------
 
         self.title_label = ctk.CTkLabel(
             self,
             text="Forex Historical Analyzer",
-            font=("Arial", 32, "bold")
+            font=("Arial", 38, "bold"),
+            text_color="#F8FAFC"
         )
 
         self.title_label.pack(
@@ -73,22 +68,21 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.subtitle_label = ctk.CTkLabel(
             self,
-            text="Analyze 30-Day Exchange Rate Trends",
+            text="Analyze Historical Exchange Rate Trends",
             font=("Arial", 16),
-            text_color="gray50"
+            text_color="#94A3B8"
         )
 
         self.subtitle_label.pack()
 
-        # =========================================
-        # CONTROL FRAME
-        # =========================================
+        # ---------------- CONTROL FRAME ----------------
 
         self.control_frame = ctk.CTkFrame(
             self,
-            width=750,
+            width=800,
             height=120,
-            corner_radius=20
+            corner_radius=20,
+            fg_color="#1E293B"
         )
 
         self.control_frame.pack(
@@ -97,14 +91,13 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.control_frame.pack_propagate(False)
 
-        # =========================================
-        # FROM
-        # =========================================
+        # ---------------- FROM ----------------
 
         self.from_label = ctk.CTkLabel(
             self.control_frame,
             text="From",
-            font=("Arial", 16, "bold")
+            font=("Arial", 16, "bold"),
+            text_color="#E2E8F0"
         )
 
         self.from_label.place(
@@ -115,58 +108,117 @@ class ForexAnalyzerApp(ctk.CTk):
         self.combo_from = ctk.CTkComboBox(
             self.control_frame,
             values=self.currency_list,
-            width=220,
+
+            width=180,
             height=45,
-            font=("Arial", 16)
+
+            font=("Arial", 16),
+
+            fg_color="#334155",
+            button_color="#3B82F6",
+            button_hover_color="#2563EB",
+            border_color="#475569",
+            dropdown_fg_color="#1E293B"
         )
 
         self.combo_from.set("USD")
 
         self.combo_from.place(
             x=40,
-            y=50
+            y=55
         )
 
-        # =========================================
-        # TO
-        # =========================================
+        # ---------------- TO ----------------
 
         self.to_label = ctk.CTkLabel(
             self.control_frame,
             text="To",
-            font=("Arial", 16, "bold")
+            font=("Arial", 16, "bold"),
+            text_color="#E2E8F0"
         )
 
         self.to_label.place(
-            x=490,
+            x=310,
             y=20
         )
 
         self.combo_to = ctk.CTkComboBox(
             self.control_frame,
             values=self.currency_list,
-            width=220,
+
+            width=180,
             height=45,
-            font=("Arial", 16)
+
+            font=("Arial", 16),
+
+            fg_color="#334155",
+            button_color="#3B82F6",
+            button_hover_color="#2563EB",
+            border_color="#475569",
+            dropdown_fg_color="#1E293B"
         )
 
         self.combo_to.set("THB")
 
         self.combo_to.place(
-            x=490,
-            y=50
+            x=310,
+            y=55
         )
 
-        # =========================================
-        # ANALYZE BUTTON
-        # =========================================
+        # ---------------- TIME ----------------
+
+        self.time_label = ctk.CTkLabel(
+            self.control_frame,
+            text="Time Range",
+            font=("Arial", 16, "bold"),
+            text_color="#E2E8F0"
+        )
+
+        self.time_label.place(
+            x=580,
+            y=20
+        )
+
+        self.combo_time = ctk.CTkComboBox(
+            self.control_frame,
+            values=self.time_options,
+
+            width=180,
+            height=45,
+
+            font=("Arial", 16),
+
+            fg_color="#334155",
+            button_color="#3B82F6",
+            button_hover_color="#2563EB",
+            border_color="#475569",
+            dropdown_fg_color="#1E293B"
+        )
+
+        self.combo_time.set("30 Days")
+
+        self.combo_time.place(
+            x=580,
+            y=55
+        )
+
+        # ---------------- BUTTON ----------------
 
         self.analyze_button = ctk.CTkButton(
             self,
+
             text="Analyze Historical Data",
-            width=300,
-            height=50,
+
+            width=320,
+            height=55,
+
             font=("Arial", 18, "bold"),
+
+            fg_color="#2563EB",
+            hover_color="#1D4ED8",
+
+            corner_radius=15,
+
             command=self.show_chart
         )
 
@@ -174,15 +226,17 @@ class ForexAnalyzerApp(ctk.CTk):
             pady=10
         )
 
-        # =========================================
-        # CHART FRAME
-        # =========================================
+        # ---------------- CHART FRAME ----------------
 
         self.chart_frame = ctk.CTkFrame(
             self,
+
             width=820,
-            height=400,
-            corner_radius=20
+            height=420,
+
+            corner_radius=25,
+
+            fg_color="#1E293B"
         )
 
         self.chart_frame.pack(
@@ -191,94 +245,158 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.chart_frame.pack_propagate(False)
 
-    # =========================================
-    # SHOW CHART
-    # =========================================
-
     def show_chart(self):
 
-        # =========================================
-        # CLEAR OLD GRAPH
-        # =========================================
+        # ---------------- CLEAR OLD GRAPH ----------------
 
         for widget in self.chart_frame.winfo_children():
 
             widget.destroy()
 
-        # =========================================
-        # GET SELECTED CURRENCY
-        # =========================================
+        # ---------------- GET VALUES ----------------
 
         from_currency = self.combo_from.get()
 
         to_currency = self.combo_to.get()
 
-        # =========================================
-        # GET HISTORICAL DATA
-        # =========================================
+        selected_time = self.combo_time.get()
+
+        # ---------------- TIME RANGE ----------------
+
+        if selected_time == "7 Days":
+
+            days = 7
+
+        elif selected_time == "30 Days":
+
+            days = 30
+
+        elif selected_time == "90 Days":
+
+            days = 90
+
+        elif selected_time == "1 Year":
+
+            days = 365
+
+        # ---------------- FOREX DATA ----------------
 
         today = datetime.today()
 
         data = []
 
-        for i in range(30):
+        for i in range(days):
 
             day = today - timedelta(days=i)
 
-            rate = self.c.get_rate(
-                from_currency,
-                to_currency,
-                day
-            )
+            try:
 
-            data.append(
-                [day.date(), rate]
-            )
+                rate = self.c.get_rate(
+                    from_currency,
+                    to_currency,
+                    day
+                )
 
-        # =========================================
-        # CREATE DATAFRAME
-        # =========================================
+                data.append([
+                    day.date(),
+                    rate
+                ])
+
+            except:
+
+                pass
+
+        # ---------------- DATAFRAME ----------------
 
         df = pd.DataFrame(
             data,
             columns=["Date", "Rate"]
         )
 
-        # =========================================
-        # SORT DATE
-        # =========================================
-
         df = df.sort_values(
             by="Date"
         )
 
-        # =========================================
-        # CREATE GRAPH
-        # =========================================
+        # ---------------- GRAPH STYLE ----------------
+
+        plt.style.use("dark_background")
 
         fig, ax = plt.subplots(
-            figsize=(8, 4)
+            figsize=(9, 4.5)
         )
+
+        # ---------------- LINE GRAPH ----------------
 
         ax.plot(
             df["Date"],
             df["Rate"],
-            marker="o"
+
+            marker="o",
+
+            linewidth=3,
+
+            markersize=8,
+
+            color="#3B82F6"
         )
+
+        # ---------------- COLORS ----------------
+
+        ax.set_facecolor("#0F172A")
+
+        fig.patch.set_facecolor("#1E293B")
+
+        # ---------------- TITLE ----------------
 
         ax.set_title(
-            f"{from_currency} to {to_currency} - 30 Day Trend"
+            f"{from_currency} to {to_currency} - {selected_time} Trends",
+
+            color="#F8FAFC",
+
+            fontsize=16
         )
 
-        ax.set_xlabel("Date")
+        # ---------------- AXIS LABELS ----------------
 
-        ax.set_ylabel("Exchange Rate")
+        ax.set_xlabel(
+            "Date",
 
-        ax.grid(True)
+            color="#CBD5E1"
+        )
 
-        # =========================================
-        # EMBED GRAPH
-        # =========================================
+        ax.set_ylabel(
+            "Exchange Rate",
+
+            color="#CBD5E1"
+        )
+
+        # ---------------- TICKS ----------------
+
+        ax.tick_params(
+            colors="#94A3B8"
+        )
+
+        # ---------------- GRID ----------------
+
+        ax.grid(
+            True,
+
+            linestyle="--",
+
+            alpha=0.3
+        )
+
+        # ---------------- BORDER ----------------
+
+        for spine in ax.spines.values():
+
+            spine.set_color("#334155")
+
+        # ---------------- AUTO LAYOUT ----------------
+
+        fig.tight_layout()
+
+        # ---------------- TKINTER CANVAS ----------------
 
         canvas = FigureCanvasTkAgg(
             fig,
@@ -292,10 +410,12 @@ class ForexAnalyzerApp(ctk.CTk):
             expand=True
         )
 
+        # ---------------- FREE MEMORY ----------------
 
-# =========================================
-# RUN APP
-# =========================================
+        plt.close(fig)
+
+
+# ---------------- RUN APP ----------------
 
 app = ForexAnalyzerApp()
 
