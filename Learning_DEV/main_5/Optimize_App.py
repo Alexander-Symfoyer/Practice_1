@@ -11,13 +11,15 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 class ForexAnalyzerApp(ctk.CTk):
 
+    
+    
     def __init__(self):
 
         super().__init__()
 
         self.title("Forex Historical Analyzer")
 
-        self.geometry("900x700")
+        self.geometry("1100x900")
         
         ctk.set_appearance_mode("dark")
 
@@ -48,6 +50,8 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.create_widgets()
 
+    
+    
     def create_widgets(self):
         self.title_label = ctk.CTkLabel(
             self,
@@ -60,7 +64,7 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.subtitle_label = ctk.CTkLabel(
                 self, 
-                text = "Analyze 30-days Exchange Rate Trends",
+                text = "Analyze Historical Exchange Rate Trends",
                 font = ("Arial",16),
                 text_color = "#94A3B8"
                 )
@@ -172,8 +176,8 @@ class ForexAnalyzerApp(ctk.CTk):
 
         self.chart_frame = ctk.CTkFrame(
             self,
-            width = 820,
-            height = 400,
+            width = 980,
+            height = 520,
             corner_radius = 25,
             fg_color = "#1E293B"
         )
@@ -181,6 +185,11 @@ class ForexAnalyzerApp(ctk.CTk):
         self.chart_frame.pack(pady = 30)
         self.chart_frame.pack_propagate(False)
 
+    def get_forex_data(self):
+        pass
+
+    
+    
     def show_chart(self):
         
         for widget in self.chart_frame.winfo_children():
@@ -208,14 +217,22 @@ class ForexAnalyzerApp(ctk.CTk):
         for i in range(days):
             day = today - timedelta(days = i)
 
-            rate = self.c.get_rate(
+            try:
+                rate = self.c.get_rate(
                 from_currency,
                 to_currency,
                 day
             )
+                
+                data.append([day.date(), rate])
 
-            data.append([day.date(), rate])
+            except Exception as e:
+                print(f"Error on {day.date()} : {e}")
+        
+        if len(data) == 0:
+            return
 
+        
         df = pd.DataFrame(
             data, 
             columns = ["Date", "Rate"]
@@ -223,11 +240,46 @@ class ForexAnalyzerApp(ctk.CTk):
         
         df = df.sort_values(by = "Date")
 
+        if len(df) < 20:
+            return
+
+        df["SMA_5"] = df["Rate"].rolling(5).mean()
+        df["SMA_20"] = df["Rate"].rolling(20).mean()
+
+        latest_sma5 = df["SMA_5"].iloc[-1]
+        latest_sma20 = df["SMA_20"].iloc[-1]
+
+        previous_sma5 = df["SMA_5"].iloc[-2]
+        previous_sma20 = df["SMA_20"].iloc[-2]
+
+        if previous_sma5 < previous_sma20 and latest_sma5 > latest_sma20:
+            
+            signal = "Golden Cross"
+            signal_color = "#22C55E"
+
+            cross_x = df["Date"].iloc[-1]
+            cross_y = latest_sma5
+        
+        elif previous_sma5 > previous_sma20 and latest_sma5 < latest_sma20:
+            
+            signal = "Death Cross"
+            signal_color = "#EF4444"
+
+            cross_x = df["Date"].iloc[-1]
+            cross_y = latest_sma5
+
+        else:
+
+            signal = "No CrossOver"
+            signal_color = "#CBD5E1"
+
+        
+
 
         plt.style.use("dark_background")
 
         fig, ax = plt.subplots(
-            figsize = (9, 4.5)
+            figsize = (11, 6.5)
         )
         
         ax.plot(
@@ -235,9 +287,36 @@ class ForexAnalyzerApp(ctk.CTk):
             df["Rate"],
             marker = "o",
             linewidth = 3,
-            markersize = 8,
-            color = "#3B82F6"
+            markersize = 4.5,
+            color = "#38BDF8",
+            label = "Exchange Rate"
         )
+        
+        ax.plot(
+            df["Date"],
+            df["SMA_5"],
+            linewidth = 1.5,
+            color = "#FACC15",
+            label = "SMA 5"
+        )
+
+        ax.plot(
+            df["Date"],
+            df["SMA_20"],
+            linewidth = 1.5,
+            color = "#A855F7",
+            label = "SMA 20"
+        )
+
+        ax.fill_between(
+            df["Date"],
+            df["SMA_5"],
+            df["SMA_20"],
+            alpha = 0.1,
+            color = signal_color
+        )
+
+        ax.margins(x = 0.02)
 
         ax.set_facecolor("#0F172A")
         fig.patch.set_facecolor("#1E293B")
@@ -247,6 +326,17 @@ class ForexAnalyzerApp(ctk.CTk):
             color = "#F8FAFC",
             fontsize = 16
             )
+        
+        ax.text(
+            0.02,
+            0.95,
+            signal,
+            transform = ax.transAxes,
+            fontsize = 14,
+            fontweight = "bold",
+            color = signal_color,
+            verticalalignment = "top"
+        )
 
         ax.set_xlabel(
             "Date",
@@ -256,6 +346,8 @@ class ForexAnalyzerApp(ctk.CTk):
             "Exchange Rate",
             color = "#CBD5E1")
 
+        plt.xticks(rotation = 25)
+        
         ax.tick_params(
             colors = "#94A3B8"
         )
@@ -264,6 +356,22 @@ class ForexAnalyzerApp(ctk.CTk):
             True,
             linestyle = "--",
             alpha = 0.3
+        )
+
+        if signal != "No CrossOver":
+            
+            ax.scatter(
+                cross_x,
+                cross_y,
+                color = signal_color,
+                s = 200,
+                zorder = 5
+            )
+        
+        ax.legend(
+            facecolor = "#1E293B",
+            edgecolor = "#334155",
+            labelcolor = "#F8FAFC"
         )
 
         for spine in ax.spines.values():
