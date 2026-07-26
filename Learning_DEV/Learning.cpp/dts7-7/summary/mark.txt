@@ -26,3 +26,13 @@ Operator Overloading
 -รวมเมทริกซ์ (Matrix)
 -ทั้งหมดขึ้นอยู่กับว่าเราเขียน operator+ ไว้อย่างไรครับ
 
+Priority queue template
+- < T, container, compare >
+-the first one is required
+-the second and the third is optional (it has default type)
+
+Set template
+- < T , compare >
+
+Map template
+- < Key , T , compare >
