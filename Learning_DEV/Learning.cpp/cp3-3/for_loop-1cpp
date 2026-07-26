@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    for(int i = 0; i < 5; i++)
+        cout << i << endl;
+    
+    string s;
+    cout << "Enter a string : "; cin >> s;
+    for (int i = 0; i < s.length(); i++) {
+        cout << s[i] << endl;
+    }
+
+    int sum = 0, n;
+    cout << "Enter n: "; cin >> n;
+    for (int i = 1; i <= n; i++) sum += i;
+    cout << "Summation is " << sum << endl;
+
+    
+    cout << "Enter n : "; cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < i; j++) cout << " ";
+        for (int j = 0; j < n-i; j++) cout << "*";
+        cout << endl;
+    }
+
+    
+}
+
+
+//for(Do first, Condition, Do it after each round)

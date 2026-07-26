@@ -1,0 +1,28 @@
+Prioriyty queue
+= queue with previlege
+- queue with priority
+- item with high priority is promoted to the front of the queue
+- there is no back of the queue
+- priority defined by having more values
+- has the same interface as stack
+
+Class
+- function definition can be outside the Class
+- access modifier is public; private; protected;
+
+Construcor
+-คือฟังก์ชันพิเศษที่ทำงานอัตโนมัติเมื่อสร้าง Object
+-ชื่อต้องเหมือน Class
+-ไม่มีชนิดคืนค่า (void, int ฯลฯ)
+-ใช้สำหรับกำหนดค่าเริ่มต้นหรือเตรียม Object ให้พร้อมใช้งาน
+
+Operator Overloading
+-คือการบอก C++ ว่า "เมื่อใช้ Operator กับ Object ของ Class นี้ ควรทำอะไร"
+-เช่น a + b    ไม่ได้แปลว่าบวกเลขเสมอไป
+-แต่อาจหมายถึง
+-บวกพิกัด (Point)
+-รวมข้อความ (string)
+-รวมเวกเตอร์ (Vector)
+-รวมเมทริกซ์ (Matrix)
+-ทั้งหมดขึ้นอยู่กับว่าเราเขียน operator+ ไว้อย่างไรครับ
+

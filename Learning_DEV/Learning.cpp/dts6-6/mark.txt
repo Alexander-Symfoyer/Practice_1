@@ -1,0 +1,14 @@
+Queue
+First-in First-out 
+เข้าก่อน ออกก่อน
+เหมือนกับคิวในชิวิตจริง
+
+One way in (back of queue)
+One way out (front of queue)
+
+push = add data to the back of queue
+pop = remove data from the head of the queue
+
+Don't call front() back() pop() 
+when the queue is empty
+

@@ -1,0 +1,19 @@
+Container = ที่เก็บข้อมูล
+Iterator = ตัวชี้ตำแหน่งข้อมูล
+Algorithm = ฟังก์ชันที่ทำงานกับข้อมูล
+
+Arithmetics = เลขคณิต
+
+สรุปที่ต้องจำ
+Iterator คือ "ตัวชี้ตำแหน่งข้อมูล"
+vector อาจย้ายข้อมูลไปยังหน่วยความจำใหม่เมื่อมีการเพิ่ม ลบ หรือขยายขนาด
+เมื่อข้อมูลถูกย้าย Iterator เก่าจะใช้ต่อไม่ได้ (Invalidated)
+หลัง resize(), insert(), push_back(), erase() ควร สร้าง Iterator ใหม่ หากต้องการใช้งานต่อ
+
+begin() ชี้ตัวแรก
+end() ชี้หลังตัวสุดท้าย
+
+ontainer    ค้นหา	                        ลบสมาชิกเดียว	                        ลบช่วง
+vector	    find(v.begin(),v.end(), x)	erase(iterator)	                    erase(first, last)
+set	        find(x)	                    erase(key) หรือ erase(iterator)	    erase(first, last)
+map	        find(key)	                erase(key) หรือ erase(iterator)	    erase(first, last)

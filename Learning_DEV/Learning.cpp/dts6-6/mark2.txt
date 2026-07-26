@@ -1,0 +1,15 @@
+Tree Structure
+
+A structure to illustrates search algorithm
+Divide into steps
+Start with intial solution
+For each possible outcome (called a state) of each step, genenate all proper possible next step
+Also, check if the current step is what we need
+Written as a diagram of node and edge
+
+Enumerate
+
+Write a diagram, each state is a node (drawn as a circle)
+Enumerate all possible next steps of each state as edges (drawn as a line)
+Doing each step will result in a new state
+k

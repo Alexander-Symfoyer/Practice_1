@@ -1,0 +1,3 @@
+Hello, World! This is a test.
+C++ programming is fun.
+I love c++ and I love python.
