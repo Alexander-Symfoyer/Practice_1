@@ -1,0 +1,127 @@
+programming language just map our variable name to that block of memory
+programming language work with the address of that block
+
+& to ask for the address of a variable
+
+* to ask for the data of an address
+
+
+A[x] = *(A + x* sizeof(T)) 
+(very fast)
+
+Dynamic array variable of type T  is a pointer to the starting address
+of consecutive block of type T 
+
+new
+ ↓
+Allocate Memory
+ ↓
+Constructor
+
+delete
+ ↓
+Destructor
+ ↓
+Free Memory
+
+Constructor
+------------
+- เรียกตอนสร้าง Object
+- กำหนดค่าเริ่มต้น
+- จองทรัพยากร (new, เปิดไฟล์ ฯลฯ)
+- ชื่อเหมือน Class
+
+Destructor
+-----------
+- เรียกตอน Object ถูกทำลาย
+- คืนทรัพยากร (delete, ปิดไฟล์ ฯลฯ)
+- ชื่อเหมือน Class แต่มี ~
+- มีได้เพียงตัวเดียว
+- ไม่มี Parameter
+
+
+
+Stack vs Heap
+Stack	        Heap
+สร้างอัตโนมัติ	    ขอเองด้วย new
+ลบอัตโนมัติ	        ต้อง delete
+เร็ว	        ช้ากว่า
+ขนาดจำกัด	        ใหญ่กว่า
+อายุสั้น	        อยู่จนกว่าจะ delete
+
+
+
+Bit
+│
+├── หน่วยข้อมูลที่เล็กที่สุด
+│
+├── 8 bits = 1 Byte
+│
+├── 32-bit
+│     ├── Pointer 4 Bytes
+│     ├── RAM ประมาณ 4 GB
+│     └── Register 32 bits
+│
+├── 64-bit
+│     ├── Pointer 8 Bytes
+│     ├── RAM มากกว่า 4 GB
+│     └── Register 64 bits
+│
+└── 128-bit
+      ├── ใช้ในงานเฉพาะด้าน
+      └── ยังไม่ใช่ CPU ทั่วไป
+
+
+                 Copy
+                  │
+        ┌─────────┴─────────┐
+        │                   │
+   Copy Constructor    Copy Assignment
+        │                   │
+   สร้าง Object ใหม่      Object มีอยู่แล้ว
+        │                   │
+   vector b(a)             b = a
+        │                   │
+   สร้าง Heap ใหม่         ลบ Heap เก่า
+        │                   │
+   copy ข้อมูล             สร้าง Heap ใหม่
+                            │
+                         copy ข้อมูล
+
+
+
+b = a
+   ↓
+สร้าง copy ของ a → other
+   ↓
+swap(b, other)
+   ↓
+b ได้ข้อมูลของ a
+   ↓
+other ได้ข้อมูลเก่าของ b
+   ↓
+other ถูกทำลาย
+   ↓
+ข้อมูลเก่าของ b ถูก delete
+
+
+insert(it, element)
+        │
+        ├── หา position
+        │
+        ├── ensure capacity
+        │
+        ├── shift ข้อมูลไปขวา
+        │
+        ├── ใส่ element
+        │
+        ├── mSize++
+        │
+        └── return iterator
+
+
+const หน้า T&
+→ "ค่าที่คืนออกไปแก้ไม่ได้"
+
+const หลัง (...)
+→ "ตัว object ที่เรียก function แก้ไม่ได้"

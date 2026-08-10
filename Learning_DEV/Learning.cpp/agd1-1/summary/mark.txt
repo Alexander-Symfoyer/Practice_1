@@ -1,0 +1,15 @@
+Different design --> different performance
+emphatize on designing efficient algorithm
+
+Brute force
+-direct approach in solving problem 
+
+CSP constraint satisfication problem
+-variables
+-domains
+-constraints
+
+COP constraint optimization problem
+-CSP but add objective
+
+

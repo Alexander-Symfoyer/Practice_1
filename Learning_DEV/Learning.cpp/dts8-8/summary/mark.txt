@@ -1,0 +1,24 @@
+Argument : things we give to a function         test(10)
+Parameter : variables inside a function         test(int x)
+
+pass-by-value 
+the argument is copied to Parameter
+slower because we have to copy
+
+pass-by-reference
+Argument = parametor
+faster
+
+const {} (memberfunction)
+this function promise not to change anything
+
+
+Student();                         // Default Constructor
+create empty object
+
+Student(string,float);             // Custom Constructor
+create object with value
+
+Student(const Student& other);     // Copy Constructor
+create new object from original object
+
