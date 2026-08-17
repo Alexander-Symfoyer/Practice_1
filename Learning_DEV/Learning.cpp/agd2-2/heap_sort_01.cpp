@@ -24,7 +24,7 @@ void fix_down(vector<int> &a, int i, int size) {            //* Fix down from no
 
     }
 
-    a[i] = temp;                //* Place the values_ in the correct position
+    a[i] = temp;                //* Place the values in the correct position
 
 }
 
