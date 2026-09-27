@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | FocusFlow</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="login-page">
+      <header class="welcome">
+        <svg class="logo" viewBox="0 0 220 190" aria-label="FocusFlow logo" role="img">
+          <defs><linearGradient id="teal" x1="0" x2="1"><stop stop-color="#159f9d"/><stop offset="1" stop-color="#7ed6ec"/></linearGradient></defs>
+          <path d="M29 117c34 1 51-25 62-59 14-41 57-60 95-45" fill="none" stroke="url(#teal)" stroke-linecap="round" stroke-width="15"/>
+          <path d="M160 7l36 21-31 18" fill="url(#teal)" stroke="url(#teal)" stroke-linejoin="round" stroke-width="6"/>
+          <path d="M184 47c20 17 28 46 21 75-9 39-46 64-85 57-29-5-51-27-57-55" fill="none" stroke="url(#teal)" stroke-linecap="round" stroke-width="15"/>
+          <path d="M81 129V91c0-29 23-52 52-52s52 23 52 52v34c0 10-8 18-18 18H99c-10 0-18-8-18-14Z" fill="none" stroke="url(#teal)" stroke-linejoin="round" stroke-width="12"/>
+          <path d="M101 130h59M101 143h59" stroke="url(#teal)" stroke-linecap="round" stroke-width="7"/>
+          <path d="m139 84 20-20" stroke="url(#teal)" stroke-linecap="round" stroke-width="7"/><circle cx="135" cy="88" r="8" fill="url(#teal)"/>
+          <path d="M135 46v10M177 88h-10" stroke="url(#teal)" stroke-linecap="round" stroke-width="7"/>
+        </svg>
+        <h1>Welcome to Focusflow !</h1>
+        <p>Study smart, Stay Focus</p>
+      </header>
+
+      <form class="login-form" action="home.html">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+        <a class="forgot" href="#forgot-password">forget password?</a>
+        <button type="submit">Login</button>
+      </form>
+
+      <footer class="signup"><p>Don’t have an account yet?</p><a href="signup.html">Sign up</a></footer>
+    </main>
+  </body>
+</html>

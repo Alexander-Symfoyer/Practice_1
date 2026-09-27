@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | FocusFlow</title>
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="profile-page">
+      <header class="topbar"><a class="back" href="home.html" data-confirm="changes" aria-label="Back to home">↩</a><button class="save" type="button">Save</button></header>
+
+      <section class="identity" aria-label="Profile appearance">
+        <h1>Background</h1>
+        <div class="cover"><button class="round-edit cover-edit" type="button" aria-label="Edit background">✎</button></div>
+        <div class="avatar-wrap"><div class="avatar">🐶</div><button class="round-edit avatar-edit" type="button" aria-label="Edit profile picture">✎</button></div>
+        <p class="profile-title">Profile</p>
+      </section>
+
+      <form class="profile-form">
+        <label for="display-name">Display Name <span>✎</span></label>
+        <input id="display-name" name="display-name" value="Alexander" />
+        <label for="bio">Bio <span>✎</span></label>
+        <textarea id="bio" name="bio">My Learning never limit.</textarea>
+        <label>Tag</label>
+        <div class="tag-row"><button class="tag" type="button">&lt;/&gt; Coding <i>✎</i></button><button class="add-tag" type="button" aria-label="Add tag">+</button></div>
+      </form>
+
+      <section class="achievements" aria-labelledby="achievement-title">
+        <h2 id="achievement-title">Achievement</h2>
+        <div class="achievement-grid">
+          <article class="achievement orange"><div class="badge">🔥<strong>25-Streaks<br />Club</strong></div><p>Stay consistent for<br />25 days.</p></article>
+          <article class="achievement yellow"><div class="badge">🏆<strong>50h Club</strong></div><p>Serious dedication</p></article>
+          <article class="achievement lime"><div class="badge">📖<strong>Deep Focus</strong></div><p>No distractions, just focus</p></article>
+          <article class="achievement locked"><div class="badge"><strong>???</strong></div><p>Locked</p></article>
+          <article class="achievement locked"><div class="badge"><strong>???</strong></div><p>Locked</p></article>
+        </div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Active Session | FocusFlow</title>
+    <link rel="stylesheet" href="session-active.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="session-page">
+      <a class="back" href="home.html" data-confirm="quit" aria-label="Back to home">↩</a>
+      <header><h1>Session</h1><p>Study Database</p></header>
+      <section class="timer" aria-label="40 minutes remaining">
+        <div class="ring"><div class="timer-center"><time datetime="PT40M">00:40:00</time><div class="status-dots"><span></span><span></span><span></span></div></div></div>
+      </section>
+      <section class="controls" aria-label="Session controls">
+        <button class="stop" type="button" data-confirm="end" aria-label="Stop session"><span></span></button>
+        <button class="pause" type="button" aria-label="Pause session"><span></span><span></span></button>
+        <button class="skip" type="button" aria-label="Skip session"><span></span><i></i></button>
+      </section>
+      <aside class="focus-tip"><span aria-hidden="true">💡</span><p><small>Placing your phone face down</small>Boost focus by 40%<br />Reduce phone pickups&nbsp; by 70%</p></aside>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

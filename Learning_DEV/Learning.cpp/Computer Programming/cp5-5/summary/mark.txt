@@ -1,0 +1,53 @@
+scanf and printf
+%d	    int
+%lld	long long
+%f	    float
+%lf	    double
+%c	    char
+%s	    C-style string
+
+Algorithm
+   ↓
+Time Complexity
+   ↓
+Data Structure
+   ↓
+Memory
+   ↓
+I/O
+   ↓
+Micro-optimization
+
+จำแค่นี้ก่อน:
+
+A && B
+
+A false → ไม่ดู B
+
+A || B
+
+A true → ไม่ดู B
+
+และ:
+
+&& → FALSE แล้วหยุด
+|| → TRUE แล้วหยุด
+
+
+Prefix = change → use      ++i
+Postfix = use → change     i++
+
+
+ปกติ:
+
+begin()                         end()
+   ↓                              ↓
+   A   B   C   D   E   |
+
+
+ย้อนกลับ:
+
+|   A   B   C   D   E
+↑                       ↑
+rend()                rbegin()
+\

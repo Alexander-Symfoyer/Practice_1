@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFlow</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="summary" aria-label="User summary">
+        <article class="panel profile-panel">
+          <div class="profile-heading"><div class="avatar" aria-hidden="true">🐶</div><div class="profile-text"><div class="name-row"><h1>Alexander</h1><span class="edit-icon">↗</span></div><p>“My Learning never limit”</p></div></div>
+          <div class="panel-divider"></div><div class="profile-footer"><span class="tag">&lt;/&gt;&nbsp; Coding</span><strong>🔥 <b>47</b> Streak</strong></div>
+        </article>
+        <article class="panel progress-panel" role="link" tabindex="0" onclick="location.href='stats.html'" onkeydown="if(event.key==='Enter') location.href='stats.html'">
+          <div class="progress-heading"><span class="chart-icon">▂▅▇↗</span><span>Daily Progress</span><i class="edit-icon">↗</i></div>
+          <p class="hours">3:30 / <b>6.00 hrs</b></p><div class="progress-track"><span></span></div><p class="progress-copy">Only 41.6% Keep going !</p>
+        </article>
+      </section>
+      <section class="focus-area" aria-label="Current focus timer"><div class="timer-ring" data-duration="main"><div class="timer-content"><time datetime="PT1H30M">01:30:00</time><p>Study Database</p></div></div></section>
+      <section class="presets" aria-label="Session presets">
+        <button class="preset" type="button" data-duration="set1"><span>◷ Set 1</span><b>00:20:00</b></button><button class="preset" type="button" data-duration="set2"><span>◷ Set 2</span><b>00:45:00</b></button><button class="preset" type="button" data-duration="set3"><span>◷ Set 3</span><b>01:15:00</b></button>
+      </section>
+      <button class="start-button" type="button" onclick="location.href='session-active.html'"><span class="play">▶</span> Start Session</button>
+      <section class="history" aria-labelledby="history-title"><h2 id="history-title">Recent Histories</h2>
+        <div class="history-group"><h3>Today</h3><ul><li><span>Study JavaScript</span><time>1:00 hrs</time><i>⟲</i></li><li><span>Study Firebase</span><time>1:30 hrs</time><i>⟲</i></li><li><span>Read Machine Learning</span><time>1:00 hrs</time><i>⟲</i></li></ul></div>
+        <div class="history-group"><h3>Yesterday</h3><ul><li><span>Read Data Science</span><time>2:30 hrs</time><i>⟲</i></li></ul></div>
+        <div class="history-group"><h3>Earlier</h3><ul><li><span>Study HTML + CSS</span><time>3:15 hrs</time><i>⟲</i></li><li><span>Practice Python 3</span><time>4:00 hrs</time><i>⟲</i></li><li><span>Research Deep Learning</span><time>2:45 hrs</time><i>⟲</i></li></ul></div>
+        <div class="pagination" aria-label="Page 1 of 3"><span class="active"></span><span></span><span></span></div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

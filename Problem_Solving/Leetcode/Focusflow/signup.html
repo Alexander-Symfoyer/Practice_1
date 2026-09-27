@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | FocusFlow</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <main class="signup-page">
+      <h1>Create Account</h1>
+      <form action="home.html">
+        <section class="form-section" aria-labelledby="personal-details">
+          <h2 id="personal-details">Personal Details</h2>
+          <div class="two-columns">
+            <label for="first-name">Firstname<input id="first-name" name="first-name" autocomplete="given-name" required /></label>
+            <label for="last-name">Lastname<input id="last-name" name="last-name" autocomplete="family-name" required /></label>
+          </div>
+          <label for="birth-date">Date of Birth<input id="birth-date" name="birth-date" type="text" placeholder="xx/xx/xxxx" inputmode="numeric" /></label>
+          <label for="education">Education Level<select id="education" name="education"><option value="" selected disabled></option><option>High School</option><option>Undergraduate</option><option>Graduate</option><option>Professional</option></select></label>
+        </section>
+        <section class="form-section account" aria-labelledby="account-details">
+          <h2 id="account-details">Account Details</h2>
+          <label for="email">Email<input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email" required /></label>
+          <label for="password">Password<input id="password" name="password" type="password" autocomplete="new-password" required /></label>
+        </section>
+        <button type="submit">Sign Up</button>
+      </form>
+      <footer><a href="login.html">Already have an account?</a></footer>
+    </main>
+  </body>
+</html>
