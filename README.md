@@ -1,1 +1,3 @@
-# **This is my journey to computer engineering in thailand!!**
+# **This is my journey to computer engineering**
+## Thank for visiting ^_^
+### My progress will be continue until...
